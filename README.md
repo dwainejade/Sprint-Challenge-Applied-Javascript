@@ -30,19 +30,29 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+    The DOM is the interface that represents the layout of the webpage using nodes.
+
 2. What is an event?
+
+    Events are actions that happen on the webpage. Can be user interactons or interactions between JS and the webpage.
 
 3. What is an event listener?
 
+    An event listner waits for the event to happen so that it can execute code.
+
 4. Why would we convert a NodeList into an Array?
+
+    So that we can perfom advanced methods.
 
 5. What is a component?
 
+    Components are bits of code that you can reuse, like functions. Keeps code DRY.
+
 ### Git Set up
 
-* [ ] Fork the project into your GitHub user account
-* [ ] Clone the forked project into a directory on your machine
-* [ ] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
+* [x] Fork the project into your GitHub user account
+* [x] Clone the forked project into a directory on your machine
+* [x] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
 * [ ] You are now ready to build this project with your preferred IDE
 
 ## Minimum Viable Product
