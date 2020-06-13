@@ -11,9 +11,10 @@
 // Use your function to create a header
 // and append it to the DOM inside the div.header-container
 
-const header = document.querySelector('.header-container')
+
 
 function Header() {
+    const header = document.querySelector('.header-container')
     const date = document.createElement('span')
     const h1 = document.createElement('h1')
     const temp = document.createElement('span')
