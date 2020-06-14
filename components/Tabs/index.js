@@ -9,7 +9,6 @@
 //    <div class="tab">topic here</div>
 
 
-
 axios
     .get('https://lambda-times-backend.herokuapp.com/topics')
     .then(res => {
@@ -20,7 +19,7 @@ axios
             const newTab = document.createElement('div')
             const topic = document.querySelector('.topics')
             newTab.appendChild(topic);
-            topic.textContent = newTab;
+
         })
             .catch(err => {
                 console.log('Error: ', err)
