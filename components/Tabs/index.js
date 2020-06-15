@@ -15,13 +15,13 @@ axios
         console.log('Your response: ', res)
         console.log('Topics: ', res.data.topics)
 
-        res.data.topics.forEach(e => {
-            const newTab = document.createElement('div')
-            const topic = document.querySelector('.topics')
-            newTab.appendChild(topic);
-
+        res.data.topics.forEach(ele => {
+            const newTab = document.createElement('div');
+            newTab.classList.add('tab');
+            newTab.textContent = ele;
+            document.querySelector('.topics').appendChild(newTab);
         })
-            .catch(err => {
-                console.log('Error: ', err)
-            })
     })
+    .catch(err => {
+        console.log(err);
+    });
