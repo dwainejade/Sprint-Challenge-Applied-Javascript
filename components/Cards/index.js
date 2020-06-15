@@ -20,45 +20,49 @@
 // Use your function to create a card for each of the articles and add the card to the DOM.
 
 axios
-    .get('https://lambda-times-backend.herokuapp.com/articles')
+    .get("https://lambda-times-backend.herokuapp.com/articles")
+
     .then(res => {
-        console.log('Backend response:', res)
-        //console.log('example card:', res.data.articles.bootstrap)
+        const cardHolder = document.querySelector(".cards-container");
+        const all = res.data.articles;
 
-        const allArticles = res.data.articles;
-        allArticles.forEach(e => {
-            
-            console.log('return:', e)
-        });
-        
-    })
-    .catch(err =>{
-        console.log('Backend error:', err)
+        for (const property in all) {
+            all[property].forEach(article => {
+                const card = makeCard(article);
+                cardHolder.appendChild(card);
+                console.log(article)
+            });
+        }
     })
 
+    .catch(err => {
+        console.log(err);
+    });
 
-    function makeCard(){
-        //create
-        const card = document.createElement('div')
-        const headline = document.createElement('div')
-        const author = document.createElement('div')
-        const imgContainer = document.createElement('div')
-        const img = document.createElement('img')
-        const span = document.createElement('span')
+function makeCard({ authorName, authorPhoto, headline }) {
+    //create
+    const card = document.createElement("div");
+    const headlineContainer = document.createElement("div");
+    const author = document.createElement("div");
+    const imgContainer = document.createElement("div");
+    const img = document.createElement("img");
+    const name = document.createElement("span");
 
-        //update
-        headline.textContent = 'headline'
-        author.textContent = 'author'
-        img.src = 'imgsrc'
+    //update
+    headlineContainer.textContent = headline;
+    name.textContent = authorName;
+    img.src = authorPhoto;
 
-        //append
-        imgContainer.appendChild(img)
+    //append
+    imgContainer.appendChild(img);
+    author.append(imgContainer, name);
+    card.append(headlineContainer, author);
 
-        //add class
-        card.classList.add('card')
-        headline.classList.add('headline')
-        author.classList.add('author')
-        imgContainer.classList.add('img-container')
+    //add class
+    card.classList.add("card");
+    headlineContainer.classList.add("headline");
+    author.classList.add("author");
+    imgContainer.classList.add("img-container");
 
-        return card
-    }
+    return card;
+}
